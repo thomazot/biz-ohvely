@@ -13121,6 +13121,10 @@ a:hover {
   }
 }
 
+.opc .wrapper {
+  padding-top: 0;
+}
+
 .prod__name h1 {
   font-weight: 500;
   font-size: 1.5rem;
