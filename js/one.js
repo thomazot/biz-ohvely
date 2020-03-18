@@ -1356,11 +1356,11 @@ $j.fn.neonTheme.custom = {
             mode: 'prepend',
         },
         'z-prev': {
-            selector: '.owl-prev',
+            selector: '.owl-prev, .toolbar .pager a.previous',
             mode: 'html',
         },
         'z-next': {
-            selector: '.owl-next',
+            selector: '.owl-next, .toolbar .pager a.next',
             mode: 'html',
         },
     },

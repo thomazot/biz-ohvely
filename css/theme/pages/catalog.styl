@@ -1,0 +1,127 @@
+.col-main .category-image, .category-title
+    display: none
+
+.ias-noneleft
+    display: none !important
+
+.category-image
+    margin-top: -16px
+
+    img
+        min-width: 100%
+        object-fit: cover
+
+.category-description
+    &, &.std
+        position: relative
+        padding: 50px 0
+        border: 0
+        background: none
+        color: #707070
+        font-size: 14px
+
+        h3
+            margin: 0 0 5px
+            text-transform: none
+            font-weight: regular
+            font-size: 24px
+            line-height: 1
+
+            strong
+                display: block
+                color: #b7e529
+                font-size: 62px
+
+        h4
+            margin: 0 0 5px
+            font-weight: regular
+            font-size: 18px
+
+        &:before
+            position: absolute
+            top: 0
+            left: 50%
+            z-index: -1
+            width: 100vw
+            height: 100%
+            background: url(product) repeat center center
+            content: ''
+            transform: translateX(-50%)
+
+.catalogsearch-result-index
+    .page-title h1
+        font-size: 1.5rem
+
+        small
+            margin-right: 10px
+            font-size: 1rem
+
+.category-block-mode
+    min-width: 0
+
+.catalog-category-view, .catalogsearch-result-index
+    .col-main
+        padding: 0
+
+    .main-container
+        max-width: none
+        width: 100%
+
+    .main
+        margin: 0 auto
+        max-width: calc(100% - 32px)
+        width: viewport
+
+    .wrapper
+        > .breadcrumb
+            display: none
+
+    @media (min-width: 993px)
+        .col-main
+            display: contents
+
+        .col-left
+            position: relative
+            z-index: 100
+
+        .main
+            position: static
+            display: grid
+            grid-template-areas: 'category category' 'filters filters' 'toolbar toolbar' 'main main' 'toolbarb toolbarb' 'description description'
+            grid-template-columns: 2fr 170px
+
+        .category-block-mode
+            grid-area: category
+
+        .category-description
+            grid-area: description
+
+        .col-left
+            margin: 0
+            padding: 0
+            max-width: none
+            grid-area: filters
+
+        .toolbar
+            align-items: start
+            grid-area: toolbar
+
+            &-bottom
+                grid-area: toolbarb
+
+        .category__products
+            position: relative
+            margin-top: 5px
+            padding-top: 50px
+            grid-area: main
+
+    @media (max-width: 992px)
+        .col-main
+            display: flex
+            flex-flow: column nowrap
+
+            .toolbar
+                order: -3
+
+            .category__products
+                order: -2

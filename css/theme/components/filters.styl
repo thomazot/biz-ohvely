@@ -1,0 +1,175 @@
+.filters
+    @media (max-width: 992px)
+        .link
+            color: #fff
+
+        &__filter
+            .count
+                color: #fff
+
+        &__filtered
+            display: none
+
+    @media (min-width: 993px)
+        display: flex
+        flex-flow: row nowrap
+        justify-content: center
+        align-items: center
+        padding: 20px 40px
+        width: 100%
+        border: dashed 1px var(--gray)
+        border-right-width: 0
+        border-left-width: 0
+        border-image-source: url(border-dashed-gray)
+        border-image-slice: 1
+        border-image-repeat: round
+
+        > .title
+            margin-right: 20px
+            margin-bottom: 0
+            font-weight: semibold
+            font-size: 14px
+
+            &:before
+                content: 'Filtrar por: '
+
+            span
+                display: none
+
+        &__list
+            display: flex
+            flex: 1
+            flex-flow: row wrap
+            justify-content: space-around
+            min-width: 0
+
+        &__name
+            display: flex
+            justify-content: center
+            align-items: center
+            margin: 0
+            padding: 0 40px 0 20px
+            height: 40px
+            border: solid 1px var(--secundary)
+            border-radius: 0
+            background: url(down) no-repeat
+            background-position: center right 10px
+            color: var(--black)
+            text-transform: none
+            font-weight: regular
+            font-size: 12px
+            line-height: 1
+
+        &__filter
+            position: relative
+            flex: 1
+            margin: 0 20px 0 0
+            padding: 5px 0
+            min-width: 0
+            background: none
+            box-shadow: none
+
+            &:hover
+                z-index: 200
+
+            .a--0, .a-filter
+                &, .count
+                    color: var(--black)
+                    font-weight: regular
+                    font-size: 12px
+
+                &:hover
+                    color: var(--secundary)
+
+            > ul, > ol, .filters__swatches, .the-filters
+                position: absolute
+                top: calc(100% - 6px)
+                left: 50%
+                padding: 20px
+                width: 100%
+                border: solid 1px var(--secundary)
+                border-top-color: #fff
+                border-radius: 2px
+                background: #fff
+                text-align: left
+                opacity: 0
+                transform: translateX(-50%)
+                pointer-events: none
+
+            &:hover
+                box-shadow: none
+
+                .filters__name
+                    background: none
+                    cursor: pointer
+
+                ul, ol, .filters__swatches, .the-filters
+                    opacity: 1
+                    pointer-events: auto
+
+        &__list
+            display: flex
+            align-items: center
+
+        &__filtered
+            position: absolute
+            right: 0
+            bottom: 100%
+            display: flex
+            justify-content: flex-end
+            align-items: center
+            margin-top: 25px
+            margin-bottom: 30px
+
+            .ul--0
+                display: flex
+
+            .li--0
+                justify-content: space-between
+                padding-left: 0
+                border: solid 1px var(--secundary)
+                color: var(--secundary)
+                font-weight: regular
+                font-size: 12px
+
+                + .li--0
+                    margin-left: 20px
+
+            .btn--close
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 0
+                width: 38px
+                height: 38px
+                background: none
+
+            .btn--close
+                color: var(--secundary)
+
+                .ico
+                    width: 10px
+                    height: 10px
+
+            .subtitle
+                margin-right: 5px
+                margin-bottom: 0
+                color: var(--primary)
+                font-weight: medium
+                font-size: 14px
+
+                &:before
+                    content: 'Filtros Selecionados:'
+
+                span
+                    display: none
+
+            .filtered__name
+                padding-left: 10px
+                opacity: 1
+
+            .filtered__clear
+                display: none
+
+            .filtered__value
+                margin-left: 3px

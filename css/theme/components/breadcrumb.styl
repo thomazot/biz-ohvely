@@ -1,0 +1,54 @@
+.breadcrumb
+    container()
+
+    padding: 20px 0
+
+    li
+        line-height: 1
+
+    &__home
+        .breadcrumb__link:before
+            display: none !important
+
+        a
+            &:after
+                content: 'Você está em:  Home'
+
+        span
+            display: none !important
+
+    &__sep
+        margin: 0 5px
+
+        span
+            display: none
+
+        &:before
+            icon('\f054')
+
+            color: var(--primary)
+            font-size: 8px
+
+    &__item a, &__last
+        color: var(--primary)
+        font-weight: regular
+        font-size: 12px
+
+        span, a
+            display: inline
+            line-height: 1
+
+    &__last
+        color: var(--black)
+        text-transform: uppercase
+        font-weight: semibold
+        font-size: 14px
+
+    &__home
+        .breadcrumb__link:before
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-right: 4px
+            color: #707070
+            line-height: 1
