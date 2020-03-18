@@ -1,0 +1,71 @@
+.frete
+    .prod__shop &
+        margin-top: 30px
+        padding-bottom: 20px
+
+    &__title
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        text-decoration: underline
+        font-weight: medium
+        font-size: 12px
+
+        .ico
+            margin-right: 5px
+            width: 19px
+            height: 15px
+
+        span
+            display: none
+
+        &:after
+            content: 'Calcule sua entrega'
+
+    &__form
+        label
+            display: none
+
+        .input-text
+            height: 46px
+            border: dashed 1px var(--primary)
+            border-image-source: url(border-dashed-dark)
+            border-image-slice: 1
+            border-image-repeat: round
+
+    &__naosei
+        position: absolute
+        right: 0
+        bottom: 100%
+        height: 40px
+        color: var(--gray-dark)
+        font-weight: regular
+        font-size: 14px
+
+    &__content
+        position: relative
+
+    &__actions
+        .btn
+            position: relative
+            padding: 0
+            width: 115px
+            height: 44px
+
+            &:before
+                content: 'Calcular'
+
+            &:after
+                position: absolute
+                top: -1px
+                right: -1px
+                bottom: -1px
+                left: 0
+                border: dashed 1px var(--primary)
+                border-image-source: url(border-dashed-dark)
+                border-image-slice: 1
+                border-image-repeat: round
+                content: ''
+
+            span
+                display: none

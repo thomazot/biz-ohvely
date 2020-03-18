@@ -1,0 +1,36 @@
+.configurable
+    &:before
+        display: none
+
+    &__option
+        padding-top: 10px
+        border-top: dashed 1px var(--gray)
+        border-image-source: url(border-dashed-gray)
+        border-image-slice: 1
+        border-image-repeat: round
+
+    .configurable-swatch-list
+        a
+            display: flex
+            justify-content: center
+            align-items: center
+            overflow: hidden
+            min-width: 32px
+            height: 32px
+            border-radius: 32px
+            text-transform: uppercase
+            font-weight: 300
+            font-size: 16px
+            line-height: 1
+
+            &:not(.has-image) span
+                padding: 0 5px
+
+            img
+                max-width: 32px
+
+        .selected
+            a
+                background: none
+                box-shadow: 0 0 0 1px var(--primary)
+                color: var(--primary)

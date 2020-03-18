@@ -1,0 +1,40 @@
+.sharing-links
+    margin: 20px 0
+
+    .list
+        justify-content: center
+
+        &:before
+            color: var(--primary)
+            content: 'Compartilhe: '
+            font-weight: regular
+            font-size: 12px
+            opacity: 1
+
+    [class *=-share] a
+        margin: 5px
+        width: 28px
+        height: 28px
+        border: solid 1px var(--primary)
+        border-radius: 50%
+        background: none
+
+        .ico
+            width: 15px
+            height: 15px
+            fill: var(--primary)
+
+    .fb-share a:hover .ico
+        fill: var(--facebook)
+
+    .tt-share a:hover .ico
+        fill: var(--twitter)
+
+    .pt-share a:hover .ico
+        fill: var(--pinterest)
+
+    .tb-share a:hover .ico
+        fill: var(--thumblr)
+
+    .lk-share a:hover .ico
+        fill: var(--linkedin)

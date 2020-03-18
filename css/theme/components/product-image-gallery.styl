@@ -1,0 +1,27 @@
+.product-image-gallery
+    box-shadow: none
+
+.product-image-thumbs
+    .thumb-link
+        &, &:hover, &.on
+            box-shadow: none
+
+    li
+        min-height: 95px
+
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+
+@media (min-width: 993px)
+    .product-image-container
+        display: flex
+
+    .more-views
+        order: -1
+        margin-right: 20px
+        width: 75px
+
+        .product-image-thumbs
+            display: block

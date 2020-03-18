@@ -9,3 +9,39 @@
         .price span
             font-weight: bold
             font-size: 14px
+
+    .prod__shop &
+        margin-bottom: 5px
+        padding: 20px 0 0
+
+        .regular-price, .special-price
+            .price span
+                font-size: 24px
+
+.price-box-avista
+    display: flex
+    justify-content: flex-start
+
+    .price
+        flex: 0 0 auto
+        order: -1
+        color: var(--primary)
+        font-weight: bold
+        font-size: 14px
+
+    .label
+        flex: 0 0 auto
+        margin-left: 3px
+        color: var(--primary)
+        font-weight: regular
+        font-size: 14px
+
+        span span
+            font-weight: bold
+
+            &:after
+                content: '%'
+
+    @media (min-width: 500px)
+        .price, .label
+            font-size: 16px
