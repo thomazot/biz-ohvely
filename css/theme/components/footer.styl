@@ -1,0 +1,73 @@
+.footer
+    &__title
+        color: var(--primary)
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 16px
+
+    &__televendas, &__whatsapp, &__email
+        display: inline-flex
+        justify-content: flex-start
+        align-items: center
+        font-weight: bold
+        font-size: 14px
+
+        .ico
+            margin-right: 5px
+            width: 20px
+            height: 20px
+
+    &__whatsapp
+        margin-left: 10px
+
+    &__email
+        display: flex
+
+    &__timer
+        padding-left: 25px
+        font-weight: regular
+        font-size: 14px
+
+    &__box
+        padding: 10px
+
+    &__container
+        margin: -10px
+
+    &__row
+        &--payments-security
+            margin: 20px 0
+            padding: 20px 0
+            border: dashed 1px var(--gray)
+            border-right-width: 0
+            border-left-width: 0
+            border-image-source: url(border-dashed-gray)
+            border-image-slice: 1
+            border-image-repeat: round
+
+            .footer__container
+                align-items: center
+
+    &__copyright
+        color: var(--primary)
+        font-weight: regular
+        font-size: 14px
+
+        .footer__container
+            display: block
+            padding: 50px 0
+            text-align: center
+
+    @media (max-width: 992px)
+        text-align: center
+
+        &__email
+            justify-content: center
+
+        .flex--a-center
+            justify-content: center
+
+    @media (min-width: 993px)
+        &__container
+            display: flex
+            justify-content: space-between

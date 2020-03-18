@@ -903,8 +903,8 @@ function default_carrossel_produtos() {
                         [0, 1],
                         [568, 2],
                         [768, 3],
-                        [1024, 4],
-                        [1270, 5],
+                        [1024, 3],
+                        [1270, 3],
                     ],
                     beforeMove: function() {
                         if (typeof $j.fn.lazyload != 'undefined') {
@@ -1328,10 +1328,10 @@ $j.fn.neonTheme.custom = {
     fix_catalog_flexbox: true, // adiciona elementos para arrumar o flexbox do catálogo
     /* - Responsivo */
     m_categories: true, // ativa o responsivo do Menu de Categorias
-    m_search: true, // ativa o responsivo da Busca
+    m_search: false, // ativa o responsivo da Busca
     m_filters: true, // ativa o responsivo dos Filtros do Catálogo
-    m_myaccount: true, // ativa o responsivo da Minha Conta
-    m_mycart: true, // ativa o responsivo do Meu Carrinho
+    m_myaccount: false, // ativa o responsivo da Minha Conta
+    m_mycart: false, // ativa o responsivo do Meu Carrinho
     m_parcelamento: true, // ativa o responsivo do parcelamento na página de produto
     m_frete: true, // ativa o responsivo do cálculo de frete na página do produto
     m_produto: true, // ativa o responsivo de cada bloco da página de produto
@@ -1346,6 +1346,22 @@ $j.fn.neonTheme.custom = {
             selector: '.frete .frete__content .input-box label',
             mode: 'prepend',
             ratio: false,
+        },
+        'z-search': {
+            selector: '.header .search',
+            mode: 'append',
+        },
+        'z-close': {
+            selector: '.header .search',
+            mode: 'prepend',
+        },
+        'z-prev': {
+            selector: '.owl-prev',
+            mode: 'html',
+        },
+        'z-next': {
+            selector: '.owl-next',
+            mode: 'html',
         },
     },
 }
@@ -1439,11 +1455,26 @@ function scrollTop() {
     })
 }
 
+function searchResize() {
+    var search = $j('.header .search__form')
+    if (!is992()) {
+        search.css({
+            width: $j('.header .categories').outerWidth() + 55,
+        })
+    } else {
+        search.css({
+            width: 'auto',
+        })
+    }
+}
+
 $j(document)
     .ready(function($) {
+        var body = $('body')
         // document.ready
         // Scrolling
         scrollTop()
+        searchResize()
 
         // Menu Categories
         $('.categories .parent').click(function(event) {
@@ -1452,12 +1483,29 @@ $j(document)
             }
         })
 
-        // Header sticky 
-        stickybits('.header-container');
+        var search = $('.header .search')
+        if (search.length) {
+            search.on('click', '> .z-search, .z-close', function() {
+                search.closest('.search').toggleClass('on')
+                body.toggleClass('search--on')
+            })
+        }
+
+        var instagramCarousel = $('.instagram__list')
+
+        if (instagramCarousel.length)
+            instagramCarousel.owlCarousel({
+                itemsScaleUp: true,
+                navigation: true,
+                navigationText: ['?', '?'],
+                pagination: false,
+                items: 6,
+            })
     })
     .on('resizeStop', function(e) {
         // Safe window.resize
         // Dispara apÃ³s o Ãºltimo movimento de resize parar no navegador.
+        searchResize()
     })
     .on('scrollStop', function(e) {
         // Safe window.scroll
@@ -1467,13 +1515,3 @@ $j(document)
         // Safe ajax completed
         // Dispara apÃ³s completar com sucesso qualquer requisiÃ§Ã£o Ajax, e trÃ¡s a resposta do Ajax.
     })
-
-// Polyfill Sticky
-/**
-stickybits - Stickybits is a lightweight alternative to `position: sticky` polyfills
-@version v3.6.7
-@link https://github.com/dollarshaveclub/stickybits#readme
-@author Jeff Wainwright <yowainwright@gmail.com> (https://jeffry.in)
-@license MIT
-**/
-!function(t,s){"object"==typeof exports&&"undefined"!=typeof module?module.exports=s():"function"==typeof define&&define.amd?define(s):(t=t||self).stickybits=s()}(this,function(){"use strict";var e=function(){function t(t,s){var e=void 0!==s?s:{};this.version="3.6.7",this.userAgent=window.navigator.userAgent||"no `userAgent` provided by the browser",this.props={customStickyChangeNumber:e.customStickyChangeNumber||null,noStyles:e.noStyles||!1,stickyBitStickyOffset:e.stickyBitStickyOffset||0,parentClass:e.parentClass||"js-stickybit-parent",scrollEl:"string"==typeof e.scrollEl?document.querySelector(e.scrollEl):e.scrollEl||window,stickyClass:e.stickyClass||"js-is-sticky",stuckClass:e.stuckClass||"js-is-stuck",stickyChangeClass:e.stickyChangeClass||"js-is-sticky--change",useStickyClasses:e.useStickyClasses||!1,useFixed:e.useFixed||!1,useGetBoundingClientRect:e.useGetBoundingClientRect||!1,verticalPosition:e.verticalPosition||"top"},this.props.positionVal=this.definePosition()||"fixed",this.instances=[];var i=this.props,n=i.positionVal,o=i.verticalPosition,a=i.noStyles,r=i.stickyBitStickyOffset,l="top"!==o||a?"":r+"px",c="fixed"!==n?n:"";this.els="string"==typeof t?document.querySelectorAll(t):t,"length"in this.els||(this.els=[this.els]);for(var u=0;u<this.els.length;u++){var f=this.els[u];f.style[o]=l,f.style.position=c,this.instances.push(this.addInstance(f,this.props))}}var s=t.prototype;return s.definePosition=function(){var t;if(this.props.useFixed)t="fixed";else{for(var s=["","-o-","-webkit-","-moz-","-ms-"],e=document.head.style,i=0;i<s.length;i+=1)e.position=s[i]+"sticky";t=e.position?e.position:"fixed",e.position=""}return t},s.addInstance=function(t,s){var e=this,i={el:t,parent:t.parentNode,props:s};if("fixed"===s.positionVal||s.useStickyClasses){this.isWin=this.props.scrollEl===window;var n=this.isWin?window:this.getClosestParent(i.el,i.props.scrollEl);this.computeScrollOffsets(i),i.parent.className+=" "+s.parentClass,i.state="default",i.stateContainer=function(){return e.manageState(i)},n.addEventListener("scroll",i.stateContainer)}return i},s.getClosestParent=function(t,s){var e=s,i=t;if(i.parentElement===e)return e;for(;i.parentElement!==e;)i=i.parentElement;return e},s.getTopPosition=function(t){if(this.props.useGetBoundingClientRect)return t.getBoundingClientRect().top+(this.props.scrollEl.pageYOffset||document.documentElement.scrollTop);for(var s=0;s=t.offsetTop+s,t=t.offsetParent;);return s},s.computeScrollOffsets=function(t){var s=t,e=s.props,i=s.el,n=s.parent,o=!this.isWin&&"fixed"===e.positionVal,a="bottom"!==e.verticalPosition,r=o?this.getTopPosition(e.scrollEl):0,l=o?this.getTopPosition(n)-r:this.getTopPosition(n),c=null!==e.customStickyChangeNumber?e.customStickyChangeNumber:i.offsetHeight,u=l+n.offsetHeight;s.offset=r+e.stickyBitStickyOffset,s.stickyStart=a?l-s.offset:0,s.stickyChange=s.stickyStart+c,s.stickyStop=a?u-(i.offsetHeight+s.offset):u-window.innerHeight},s.toggleClasses=function(t,s,e){var i=t,n=i.className.split(" ");e&&-1===n.indexOf(e)&&n.push(e);var o=n.indexOf(s);-1!==o&&n.splice(o,1),i.className=n.join(" ")},s.manageState=function(t){var s=t,e=s.el,i=s.props,n=s.state,o=s.stickyStart,a=s.stickyChange,r=s.stickyStop,l=e.style,c=i.noStyles,u=i.positionVal,f=i.scrollEl,p=i.stickyClass,h=i.stickyChangeClass,d=i.stuckClass,y=i.verticalPosition,k="bottom"!==y,m=function(t){t()},g=this.isWin&&(window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame)||m,C=this.toggleClasses,v=this.isWin?window.scrollY||window.pageYOffset:f.scrollTop,S=k&&v<=o&&("sticky"===n||"stuck"===n),w=r<=v&&"sticky"===n;o<v&&v<r&&("default"===n||"stuck"===n)?(s.state="sticky",g(function(){C(e,d,p),l.position=u,c||(l.bottom="",l[y]=i.stickyBitStickyOffset+"px")})):S?(s.state="default",g(function(){C(e,p),C(e,d),"fixed"===u&&(l.position="")})):w&&(s.state="stuck",g(function(){C(e,p,d),"fixed"!==u||c||(l.top="",l.bottom="0",l.position="absolute")}));var b=a<=v&&v<=r;v<a/2||r<v?g(function(){C(e,h)}):b&&g(function(){C(e,"stub",h)})},s.update=function(e){var t=this;return void 0===e&&(e=null),this.instances.forEach(function(s){t.computeScrollOffsets(s),e&&Object.keys(e).forEach(function(t){s.props[t]=e[t]})}),this},s.removeInstance=function(t){var s=t.el,e=t.props,i=this.toggleClasses;s.style.position="",s.style[e.verticalPosition]="",i(s,e.stickyClass),i(s,e.stuckClass),i(s.parentNode,e.parentClass)},s.cleanup=function(){for(var t=0;t<this.instances.length;t+=1){var s=this.instances[t];s.stateContainer&&s.props.scrollEl.removeEventListener("scroll",s.stateContainer),this.removeInstance(s)}this.manageState=!1,this.instances=[]},t}();return function(t,s){return new e(t,s)}});

@@ -1,2 +1,19 @@
 .cms-home .header-container + .banner
-    margin: 0
+    margin-top: -16px
+
+.banner--nojs
+    .banner
+        &__wrapper
+            margin: -10px
+
+            img
+                width: 100%
+                object-fit: contain
+
+        &__item
+            padding: 10px
+
+    @media (min-width: 993px)
+        .banner__wrapper
+            display: flex
+            justify-content: center

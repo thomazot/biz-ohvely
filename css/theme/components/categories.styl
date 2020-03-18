@@ -1,3 +1,7 @@
+.categories
+    &__show
+        order: -1
+
 @media (max-width: 992px)
     .categories
         .parent
@@ -11,12 +15,13 @@
 
             > a
                 display: flex
-                min-height: 48px
                 justify-content: flex-start
                 align-items: center
+                min-height: 48px
 
             &:after
                 icon('\f054')
+
                 position: absolute
                 top: 0
                 right: 0
@@ -26,9 +31,9 @@
                 align-items: center
                 width: 48px
                 height: 48px
+                background: rgba(255, 255, 255, .1)
                 font-size: 20px
-                background: rgba(255, 255, 255, 0.1)
-                transition: all 0.2s ease
+                transition: all .2s ease
 
             &.on
                 &:after
@@ -42,20 +47,75 @@
 
 @media (min-width: 993px)
     .categories
-        margin-bottom: 0 !important
-        background: none
         flex: 1
+        margin-right: 10px
+        margin-bottom: 0 !important
+        margin-left: 50px
         min-width: 0
+        background: none
+
+        &--justify
+            .drop--left .box--1
+                left: 25px
 
         .a--0
+            padding: 0
             color: var(--primary)
-            white-space: nowrap
-            font-size: 14px
-            font-weight: semibold
             text-transform: uppercase
+            white-space: nowrap
+            font-weight: semibold
+            font-size: 14px
+
+        .a--1
+            text-transform: uppercase
+            font-weight: medium
+            font-size: 14px
 
         .li--0
+            flex: 0 0 auto
             order: 1
 
-        &__all
-            order: 2
+            + .li--0 .a--0
+                margin-left: 25px
+
+            &:nth-child(2) .a--0
+                margin-left: 0
+
+            &:nth-child(2)
+                .box--1
+                    left: 0
+
+            &:hover
+                .a--0
+                    position: relative
+                    background: none
+                    color: var(--secundary)
+
+                    &:after
+                        position: absolute
+                        bottom: 6px
+                        left: 0
+                        width: 100%
+                        height: 2px
+                        background: var(--secundary)
+                        content: ''
+
+            &.categories__all
+                order: 2
+                margin-left: 25px
+
+        .box--1
+            padding: 20px
+            border: dashed 1px var(--secundary)
+            border-image-source: url(border-dashed)
+            border-image-slice: 1
+            border-image-repeat: round
+
+        .all-a--0, .all-a--1
+            text-transform: uppercase
+
+            &:hover
+                box-shadow: none
+
+        .all-a--0
+            font-size: 14px

@@ -1,2 +1,86 @@
 .search
-    display: none
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0
+    width: 42px
+    height: 42px
+
+    &__input
+        height: 42px !important
+
+    > .z-search
+        width: 21px
+        height: 21px
+
+    .z-close
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 35
+        visibility: hidden
+        padding: 15px
+        width: 42px
+        height: 42px
+        opacity: 0
+        fill: var(--secundary-contrast)
+
+    &.on
+        .z-close
+            visibility: visible
+            opacity: 1
+
+    &__form
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 30
+        visibility: hidden
+        max-width: 0
+        width: 650px
+        background: var(--secundary)
+        opacity: 0
+        transition: all .2s ease
+
+        .on &
+            visibility: visible
+            max-width: 1000px
+            opacity: 1
+
+    &__input
+        padding-left: 0 !important
+        border: 0 !important
+        background: none !important
+        box-shadow: none !important
+        color: var(--secundary-contrast)
+        font-weight: medium
+        font-size: 12px
+
+        &::placeholder
+            color: var(--secundary-contrast)
+            text-transform: uppercase
+
+        &:focus::placeholder
+            color: transparent
+
+    &__button
+        order: -1
+        background: var(--secundary)
+        box-shadow: none !important
+
+        .ico
+            fill: var(--secundary-contrast)
+
+    @media (min-width: 993px)
+        position: relative
+
+    @media (max-width: 992px)
+        &__form
+            top: 50%
+            left: 0
+            min-width: 100%
+            transform: translateY(-50%)
+
+        .z-close
+            top: 50%
+            transform: translateY(-50%)

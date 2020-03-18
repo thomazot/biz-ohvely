@@ -1,0 +1,64 @@
+.newsletter
+    position: relative
+    z-index: 0
+    padding: 25px 0
+    background: var(--secundary)
+
+    &:before
+        position: absolute
+        top: -1px
+        right: 0
+        bottom: -1px
+        left: 0
+        border: dashed 1px var(--secundary)
+        border-right-width: 0
+        border-left-width: 0
+        border-image-source: url(border-dashed)
+        border-image-slice: 1
+        border-image-repeat: round
+        content: ''
+
+    &__form
+        position: relative
+        z-index: 1
+        margin: 0 auto
+        max-width: 'calc(100% - %s)' % gap
+        width: viewport
+
+    &__text.std
+        .title
+            color: var(--secundary-contrast)
+            font-weight: bold
+            font-size: 20px
+
+    &__email
+        flex: 1 1 20%
+
+    &__email, &__name, &__submit
+        padding-right: 10px
+        padding-left: 10px
+
+    &__btn
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0
+        height: 44px
+        background: var(--secundary-contrast)
+        color: var(--secundary)
+        font-weight: bold
+        font-size: 18px
+
+    @media (min-width: 993px)
+        &__form
+            flex-wrap: nowrap
+
+        &__text
+            flex: 0 1 350px
+            margin-bottom: 0
+
+        &__name, &__email, &__submit
+            padding-bottom: 0
+
+        &__submit
+            flex: 0 0 170px

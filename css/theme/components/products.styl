@@ -1,0 +1,64 @@
+.products
+    &__title
+        padding: 20px 0
+        text-align: center
+        font-weight: semibold
+        font-size: 26px
+
+    &__case
+        padding: 20px
+        border: dashed 1px transparent
+        border-radius: 4px
+        box-shadow: none
+        text-align: center
+
+    &__main
+        padding-top: 15px
+
+    &__name
+        display: block
+        margin-bottom: 20px
+        font-weight: semibold
+        font-size: 18px
+
+    &__actions
+        .btn-cart
+            width: 100%
+            background: var(--secundary)
+            box-shadow: none
+            color: var(--secundary-contrast)
+            text-transform: lowercase
+            font-weight: bold
+            font-size: 18px
+
+    @media (min-width: 993px)
+        &__header
+            margin: -20px -20px 0
+            transition: all .2s ease
+
+        &__actions
+            visibility: hidden
+            opacity: 0
+            transition: all .2s ease
+
+            .btn-cart
+                transition: all .2s ease
+                transform: translateY(10px)
+
+        &__case
+            &:hover
+                border: dashed 1px var(--secundary)
+                border-image-source: url(border-dashed)
+                border-image-slice: 1
+                border-image-repeat: round
+
+                .products
+                    &__header
+                        opacity: .5
+
+                    &__actions
+                        visibility: visible
+                        opacity: 1
+
+                        .btn-cart
+                            transform: translateY(0)

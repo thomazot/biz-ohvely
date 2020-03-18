@@ -1,0 +1,44 @@
+.owl
+    &-prev
+        right: auto
+        left: 0
+
+    &-next
+        right: 0
+        left: auto
+
+    &-prev, &-next
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0
+        width: 48px
+        height: 48px
+        border-radius: 2px
+        background: none
+        box-shadow: none
+        color: var(--secundary)
+        text-indent: 0
+
+        &:hover
+            background: var(--secundary)
+            color: var(--secundary-contrast)
+
+        .ico
+            width: 14px
+            height: 27px
+
+        &:before
+            display: none
+
+@media (min-width: viewport + 100)
+    .owl
+        .products &, .instagram &
+            &-next
+                right: -50px
+
+            &-prev
+                left: -50px
+
+        .products &-pagination
+            display: none

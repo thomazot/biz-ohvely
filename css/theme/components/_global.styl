@@ -14,6 +14,7 @@
     --secundary-hover: color2_bg_hover
     --secundary-contrast: color2_font
     --secundary-contrast-hover: color2_font_hover
+    --gray: #e9eaef
     // Socials
     --youtube: #cc0404
     --facebook: #3b5998
@@ -29,6 +30,10 @@
  */
 body
     font-family: font
+
+input[type=text], input[type=password], input[type=search], input[type=email], input[type=url], input[type=tel], input[type=number], input[type=date], input[type=mounth], input[type=week], input[type=time], input[type=datetime], input[type=datetime-local], input[type=color]
+    border-radius: 0
+    box-shadow: none
 
 .wrapper-container
     overflow: visible
@@ -46,8 +51,8 @@ body
 .messages
     > li
         display: block
-        padding: 10px 20px
         margin-bottom: 20px
+        padding: 10px 20px
         font-size: 14px
 
     .success-msg
@@ -71,3 +76,10 @@ body
 
 .categories .ul--0
     max-width: viewport
+
+.wrapper
+    svg
+        fill: currentColor
+
+a:hover
+    color: var(--secundary)

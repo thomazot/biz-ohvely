@@ -1,0 +1,63 @@
+<div class="footer__row footer__row--nav">
+    <div class="footer__container">
+
+        <div class="footer__box footer__box--help">
+            <h3 class="footer__title">Central de Ajuda</h3>
+            <div class="footer__content">
+                {{block type="menubuilder/output" identifier="footer-central-de-ajuda"}}
+            </div>
+        </div>
+
+        <div class="footer__box footer__box--inst">
+            <h3 class="footer__title">Institucional</h3>
+            <div class="footer__content">
+                {{block type="menubuilder/output" identifier="footer-institucional"}}
+            </div>
+        </div>
+
+        <div class="footer__box footer__box--aten">
+            <h3 class="footer__title">Atendimento</h3>
+            <div class="footer__content">
+                <div class="footer__televendas">
+                    <svg class="ico z-phone"><use xlink:href="#z-phone" /></svg>
+                    <a href="tel:1132220768">Televendas: 11 3222-0768</a>
+                </div>
+                <div class="footer__whatsapp">
+                    <svg class="ico z-whatsapp"><use xlink:href="#z-whatsapp" /></svg>
+                    <a href="https://api.whatsapp.com/send?phone=5511942888525">Televendas: 11 94288-8525</a>
+                </div>
+                <div class="footer__email">
+                    <svg class="ico z-mail"><use xlink:href="#z-mail" /></svg>
+                    <a href="mailto:contato@ohvely.com.br">E-mail: contato@ohvely.com.br</a>
+                </div>
+                <div class="footer__timer">
+                    Horário de Atendimento: <br />
+                    De segunda à sexta das 8h às 17h
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__box footer__box--socials">
+            {{widget type="interface/widget_social" template="interface/widgets/social.phtml" identificador="socials" redes="all"}}
+        </div>
+
+    </div>
+</div>
+
+<div class="footer__row footer__row--payments-security">
+    <div class="footer__container">
+        <div class="footer__box footer__box--payments">
+            {{widget type="interface/widget_pagtos" template="interface/widgets/pagtos.phtml" identificador="payments" pagtos="all"}}
+        </div>
+        <div class="footer__box footer__box--security">
+            {{widget type="interface/widget_seals" template="interface/widgets/seals.phtml" identificador="securitys" seals="all"}}
+        </div>
+    </div>
+</div>
+
+<div class="footer__copyright">
+    <div class="footer__container">
+        <p>BYUNG IK MIN - ME / Rua José Paulino, 691 - LOJA 158 - Bom Retiro São Paulo / SP CEP 01120-001 - CNPJ 23.103.066/0001-02</p>
+        <p>Telefone 11 3222-0768 - Email: contato@ohvely.com.br</p>
+    </div>
+</div>

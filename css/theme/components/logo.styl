@@ -1,4 +1,12 @@
 .logo
     .header &
         img, svg
-            height: 48px
+            max-width: 100%
+            height: auto
+
+    @media (max-width: 992px)
+        .header &
+            flex: 1
+            justify-content: flex-start
+            margin-right: 15px
+            min-width: 0
