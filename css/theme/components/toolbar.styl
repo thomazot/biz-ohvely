@@ -60,6 +60,16 @@
         font-size: 11px
         appearance: none
 
+    @media (max-width: 992px)
+        display: block
+
+        .amount
+            text-align: center
+
+        .sorter
+            justify-content: center
+            padding-bottom: 16px
+
     @media (min-width: 993px)
         display: flex
         align-items: center !important
@@ -130,7 +140,7 @@
                     line-height: 1
 
                 &.next, &.previous
-                    background: var(--gray-dark)
+                    background: none
 
                     span
                         display: none
