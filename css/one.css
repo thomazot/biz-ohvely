@@ -11542,6 +11542,12 @@ a:hover {
     justify-content: center;
   }
 }
+#banner__instagram img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 
 .breadcrumb {
   width: 70.75rem;

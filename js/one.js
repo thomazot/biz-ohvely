@@ -1486,17 +1486,6 @@ $j(document)
                 body.toggleClass('search--on')
             })
         }
-
-        var instagramCarousel = $('.instagram__list')
-
-        if (instagramCarousel.length)
-            instagramCarousel.owlCarousel({
-                itemsScaleUp: true,
-                navigation: true,
-                navigationText: ['?', '?'],
-                pagination: false,
-                items: 6,
-            })
     })
     .on('resizeStop', function(e) {
         // Safe window.resize
