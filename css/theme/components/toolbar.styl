@@ -60,39 +60,37 @@
         font-size: 11px
         appearance: none
 
+    .view-mode
+        order: -1
+        margin-right: 15px
+        padding: 10px 15px 10px 0
+        border-right: solid 1px var(--secundary)
+
+        .grid, .list
+            height: 20px
+
+            .ico
+                width: 20px
+                height: 20px
+                fill: var(--secundary)
+
+        a
+            opacity: .5
+
+    .sorter
+        display: contents
+
     @media (max-width: 992px)
-        display: block
+        .sort-by label, .limiter:before, .amount
+            display: none
 
-        .amount
-            text-align: center
-
-        .sorter
-            justify-content: center
-            padding-bottom: 16px
+        .sort-by
+            flex: 1
+            min-width: 0
 
     @media (min-width: 993px)
         display: flex
         align-items: center !important
-
-        .view-mode
-            order: -1
-            margin-right: 15px
-            padding: 10px 15px 10px 0
-            border-right: solid 1px var(--secundary)
-
-            .grid, .list
-                height: 20px
-
-                .ico
-                    width: 20px
-                    height: 20px
-                    fill: var(--secundary)
-
-            a
-                opacity: .5
-
-        .sorter
-            display: contents
 
 .toolbar-bottom
     .toolbar

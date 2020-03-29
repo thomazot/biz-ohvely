@@ -893,7 +893,7 @@ function default_carrossel_produtos() {
                     navigationText: ['?', '?'],
                     items: 5,
                     itemsCustom: [
-                        [0, 1],
+                        [0, 2],
                         [568, 2],
                         [768, 3],
                         [1024, 3],
@@ -1486,6 +1486,20 @@ $j(document)
                 body.toggleClass('search--on')
             })
         }
+
+        $('#banner__instagram .banner__wrapper').owlCarousel({
+            navigation: true,
+            items: 6,
+            itemsCustom: [
+                [0, 3],
+                [568, 4],
+                [768, 5],
+                [1024, 6],
+                [1270, 6],
+            ],
+            navigationText: ['?', '?'],
+            pagination: false,
+        })
     })
     .on('resizeStop', function(e) {
         // Safe window.resize
